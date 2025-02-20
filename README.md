@@ -46,6 +46,8 @@ b. Para que o App seja executado no emulador do Visual Studio ou até mesmo no m
 
 c. Para que o App utilize biometria e reconhecimento facial, o emulador e/ou dispositivo deve estar habilitado e com cadastro biométrico.
 
+
 ***4- FLUXO DAS TELAS***
+
 ![fluxo drawio](https://github.com/user-attachments/assets/fe19923b-8049-4b21-a113-942a3a2da9d5)
 
