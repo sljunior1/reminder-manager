@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<views:ContentPageBase xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:ReminderManagerApp.Views"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="ReminderManagerApp.Views.Profile.v1.UserProfileView"
+             Title="" BackgroundColor="{DynamicResource BackgroundColor}">
+    <views:ContentPageBase.Behaviors>
+        <toolkit:StatusBarBehavior StatusBarColor="{DynamicResource BackgroundColor}"/>
+    </views:ContentPageBase.Behaviors>
+    <Grid Padding="30">
+        <StackLayout>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+                <Label Text="MEU PERFIL" HorizontalOptions="CenterAndExpand" FontSize="Default" FontFamily="AppLogoFont" VerticalOptions="CenterAndExpand" TextColor="{DynamicResource LogoTitleTextColor}"/>
+            </StackLayout>
+            <Frame Margin="0,20,0,0" BackgroundColor="{DynamicResource BackgroundColor}" BorderColor="{DynamicResource LabelTextColor}">
+                <StackLayout>
+                    <VerticalStackLayout>
+                        <Label Text="ESCOLHA O TEMA" FontSize="Micro" FontAttributes="Bold" TextColor="{DynamicResource LabelTextColor}"/>
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                            <Label Text="Claro" VerticalOptions="Center" TextColor="{DynamicResource LabelTextColor}"/>
+                            <Switch ThumbColor="{Binding ToggledColor}" OnColor="{Binding OnColor}" Toggled="Switch_Toggled" VerticalOptions="Center" IsToggled="{Binding IsToggled}"/>
+                            <Label Text="Escuro" VerticalOptions="Center" TextColor="{DynamicResource LabelTextColor}"/>
+                        </StackLayout>
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Margin="0,20,0,0">
+                        <Label Text="NOME COMPLETO" FontSize="Micro" FontAttributes="Bold" TextColor="{DynamicResource LabelTextColor}"/>
+                        <Entry Text="{Binding NameText}" HorizontalOptions="FillAndExpand" IsReadOnly="True" TextColor="{DynamicResource LabelTextColor}"/>
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Margin="0,20,0,0">
+                        <Label Text="CPF" FontSize="Micro" FontAttributes="Bold" TextColor="{DynamicResource LabelTextColor}"/>
+                        <Entry Text="{Binding CPFText}" HorizontalOptions="FillAndExpand" IsReadOnly="True" TextColor="{DynamicResource LabelTextColor}"/>
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Margin="0,20,0,0">
+                        <Label Text="E-MAIL" FontSize="Micro" FontAttributes="Bold" TextColor="{DynamicResource LabelTextColor}"/>
+                        <Entry Text="{Binding EmailText}" HorizontalOptions="FillAndExpand" IsReadOnly="True" TextColor="{DynamicResource LabelTextColor}"/>
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Margin="0,20,0,0">
+                        <Label Text="CELULAR" FontSize="Micro" FontAttributes="Bold" TextColor="{DynamicResource LabelTextColor}"/>
+                        <Entry Text="{Binding PhoneText}" HorizontalOptions="FillAndExpand" IsReadOnly="True" TextColor="{DynamicResource LabelTextColor}"/>
+                    </VerticalStackLayout>
+                </StackLayout> 
+            </Frame>
+        </StackLayout>
+        <ContentView IsVisible="{Binding IsBusy}" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" BackgroundColor="{DynamicResource BackgroundColor}" Padding="10,0" Opacity="0.8">
+            <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" Color="DodgerBlue" HeightRequest="75" WidthRequest="75" HorizontalOptions="Center" VerticalOptions="Center"/>
+        </ContentView>
+    </Grid>
+</views:ContentPageBase>

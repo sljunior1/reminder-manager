@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<views:ContentPageBase xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:ReminderManagerApp.Views"
+             x:Class="ReminderManagerApp.Views.Reminders.v1.NewReminderView"
+             Title="">
+    <Grid Padding="30">
+        <StackLayout>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+                <StackLayout BackgroundColor="Transparent" HeightRequest="50" WidthRequest="50">
+                    <Image BackgroundColor="Transparent" Source="{AppThemeBinding Light=icon_arrow_left_light.svg, Dark=icon_arrow_left_dark.svg}" 
+                           HeightRequest="22" WidthRequest="22" VerticalOptions="CenterAndExpand"/>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding BackCommand}"/>
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+                <Label Text="NOVO LEMBRETE" HorizontalOptions="CenterAndExpand" FontSize="Default" FontFamily="AppLogoFont" 
+                       TextColor="{DynamicResource LogoTitleTextColor}" VerticalOptions="Center" />
+            </StackLayout>
+            <VerticalStackLayout Margin="0,50,0,0">
+                <Label Text="TÍTULO" FontSize="Micro" FontAttributes="Bold" TextColor="{DynamicResource LabelTextColor}"/>
+                <Entry Placeholder="Digite o título do lembrete" Text="{Binding TitleText}" HorizontalOptions="FillAndExpand" MaxLength="100"/>
+            </VerticalStackLayout>
+            <VerticalStackLayout Margin="0,20,0,0">
+                <Label Text="DESCRIÇÃO" FontSize="Micro" FontAttributes="Bold" TextColor="{DynamicResource LabelTextColor}"/>
+                <Entry Placeholder="Digite a descrição do lembrete" Text="{Binding DescriptionText}" HorizontalOptions="FillAndExpand" MaxLength="100"/>
+            </VerticalStackLayout>
+            <StackLayout Margin="0,20,0,0" HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                <VerticalStackLayout>
+                    <Label Text="DATA DE VENCIMENTO" FontSize="Micro" FontAttributes="Bold" TextColor="{DynamicResource LabelTextColor}"/>
+                    <DatePicker Format="dd/MM/yyyy" WidthRequest="150" HorizontalOptions="StartAndExpand" Date="{Binding DateDueText}" />
+                </VerticalStackLayout>
+                <VerticalStackLayout HorizontalOptions="EndAndExpand">
+                    <Label Text="HORA DE VENCIMENTO" FontSize="Micro" FontAttributes="Bold" TextColor="{DynamicResource LabelTextColor}"/>
+                    <TimePicker WidthRequest="150" Time="{Binding HourDueText,Mode=TwoWay}"/>
+                </VerticalStackLayout>
+            </StackLayout>
+            <Frame BorderColor="#ececec" Padding="10" Margin="0,20,0,0" BackgroundColor="{DynamicResource BackgroundColor}">
+                <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
+                    <ImageButton Source="{AppThemeBinding Light=icon_attached_light.svg, Dark=icon_attached_dark.svg}" HeightRequest="20" WidthRequest="20"/>
+                    <Label Text=" Anexar imagens ou documentos" VerticalOptions="Center" TextColor="{DynamicResource LabelTextColor}"/>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding AttachFileCommand}"/>
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+            </Frame>
+            <Label Text="{Binding NameFile}" />
+            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Margin="0,30,0,0">
+                <Button Text="Limpar" FontSize="Body" FontAttributes="Bold" Command="{Binding CleanCommand}" BackgroundColor="{DynamicResource SecondaryButtonBackgroundColor}" TextColor="{DynamicResource SecondaryButtonTextColor}" 
+                    BorderColor="#ececec" BorderWidth="1" HorizontalOptions="Start" />
+                <Button Text="Salvar" FontSize="Body" FontAttributes="Bold" Command="{Binding SaveCommand}" HorizontalOptions="End" BackgroundColor="{DynamicResource MeanButtonBackgroundColor}" TextColor="{DynamicResource MeanButtonTextColor}" Margin="20,0,0,0" />
+            </StackLayout>
+        </StackLayout>
+    </Grid>
+</views:ContentPageBase>

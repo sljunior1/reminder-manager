@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<views:ContentPageBase xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:ReminderManagerApp.Views"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:model="clr-namespace:ReminderManagerApp.Models"
+             x:Class="ReminderManagerApp.Views.Reminders.v1.ReminderView"
+             Title="" BackgroundColor="{DynamicResource BackgroundColor}">
+    <views:ContentPageBase.Behaviors>
+        <toolkit:StatusBarBehavior StatusBarColor="{DynamicResource BackgroundColor}"/>
+    </views:ContentPageBase.Behaviors>
+    <views:ContentPageBase.Resources>
+        <Style TargetType="StackLayout">
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal" />
+                        <VisualState x:Name="Selected">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor"
+                                        Value="{DynamicResource SelectItemColor}" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>
+    </views:ContentPageBase.Resources>
+    <Grid>
+        <ScrollView>
+            <StackLayout Padding="25">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Start">
+                    <Image Source="{AppThemeBinding Light=icon_bell_light.svg, Dark=icon_bell_dark.svg}" WidthRequest="25" HeightRequest="15" />
+                    <Label Text="Reminder Manager" FontAttributes="Bold" FontSize="Default" FontFamily="AppLogoFont" TextColor="{DynamicResource LogoTitleTextColor}"/>
+                </StackLayout>
+                <Entry x:Name="searchBar" Placeholder="Buscar por título ou descrição" HorizontalOptions="FillAndExpand" Margin="0,20,0,20" MaxLength="60" 
+                       TextChanged="searchBar_TextChanged" PlaceholderColor="{DynamicResource PlaceholderTextColor}"/>
+                <CollectionView x:Name="ReminderCollectionView" ItemsSource="{Binding ListReminder}" SelectionChanged="CollectionView_SelectionChanged"
+                                SelectionMode="Single">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="model:Reminder">
+                            <StackLayout Margin="0,0,0,20">
+                                <Border Padding="10">
+                                    <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
+                                        <Label Text="{Binding Id}" IsVisible="False"/>
+                                        <Label FontSize="Medium" Text="{Binding Title}" TextColor="{DynamicResource MediumTextColor}" FontAttributes="Bold" HorizontalTextAlignment="Start"/>
+                                        <Label FontSize="Small" Text="{Binding Description}" TextColor="{DynamicResource SmallTextColor}" HorizontalTextAlignment="Start"/>
+                                        <Label FontSize="Micro" Text="{Binding DueDateFormat}" TextColor="{DynamicResource MicroTextColor}" HorizontalTextAlignment="Start"/>
+                                    </StackLayout>
+                                </Border>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+                <Button Text="Carregar Mais" FontSize="Micro" FontAttributes="Bold" IsVisible="{Binding CanLoadMore}" Command="{Binding LoadMoreReminderCommand}" 
+                        BackgroundColor="{DynamicResource BackgroundColor}" TextColor="{DynamicResource LabelTextColor}" BorderColor="#ececec" BorderWidth="1" HorizontalOptions="FillAndExpand" />
+                <ActivityIndicator IsRunning="{Binding IsLoading}" IsVisible="{Binding IsLoading}" Color="DodgerBlue" VerticalOptions="Center" HeightRequest="20" WidthRequest="20"/>
+            </StackLayout>
+        </ScrollView>
+        <ContentView IsVisible="{Binding IsBusy}" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" BackgroundColor="{DynamicResource BackgroundColor}" Padding="10,0" Opacity="0.8">
+            <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" Color="DodgerBlue" HeightRequest="75" WidthRequest="75" HorizontalOptions="Center" VerticalOptions="Center"/>
+        </ContentView>
+        <Button CornerRadius="30" BackgroundColor="{DynamicResource MeanButtonBackgroundColor}" TextColor="{DynamicResource MeanButtonTextColor}" Text="+" FontSize="Large" HeightRequest="60" WidthRequest="60"
+                AbsoluteLayout.LayoutBounds="1, 1, AutoSize, AutoSize" AbsoluteLayout.LayoutFlags="PositionProportional"
+                VerticalOptions="End" HorizontalOptions="End" Margin="20,20,20,30" Command="{Binding AddNewReminderCommand}"/>
+    </Grid>
+</views:ContentPageBase>

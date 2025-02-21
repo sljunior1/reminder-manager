@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<views:ContentPageBase xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:ReminderManagerApp.Views"
+             xmlns:behavior="clr-namespace:ReminderManagerApp.Behaviors"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="ReminderManagerApp.Views.Login.v1.LoginView"
+             Title="Login">
+    <views:ContentPageBase.Behaviors>
+        <toolkit:StatusBarBehavior StatusBarColor="DodgerBlue"/>
+    </views:ContentPageBase.Behaviors>
+    <Grid>
+        <StackLayout Padding="30">
+            <VerticalStackLayout Margin="0,20,0,0">
+                <Label Text="ACESSE SUA CONTA" FontSize="Micro" FontAttributes="Bold" TextColor="{DynamicResource LabelTextColor}"/>
+                <Entry Placeholder="Digite seu CPF ou E-mail" Text="{Binding UserText}" HorizontalOptions="FillAndExpand" MaxLength="100">
+                    <Entry.Behaviors>
+                        <behavior:CpfBehavior/>
+                    </Entry.Behaviors>
+                </Entry>
+            </VerticalStackLayout>
+            <VerticalStackLayout Margin="0,20,0,0">
+                <Label Text="SENHA" FontSize="Micro" FontAttributes="Bold" TextColor="{DynamicResource LabelTextColor}"/>
+                <AbsoluteLayout HorizontalOptions="FillAndExpand">
+                    <Entry x:Name="entryPassword" Placeholder="Digite sua senha" IsPassword="True" Text="{Binding PasswordText}" MaxLength="12" 
+               AbsoluteLayout.LayoutBounds="1,0.5,1,AutoSize" AbsoluteLayout.LayoutFlags="WidthProportional" />
+                    <ImageButton x:Name="imgVisiblePassword" BackgroundColor="Transparent" Source="{AppThemeBinding Light=icon_eye_close_light.svg, Dark=icon_eye_close_dark.svg}" HeightRequest="20" WidthRequest="20" 
+                     AbsoluteLayout.LayoutBounds="1,0,AutoSize,AutoSize" AbsoluteLayout.LayoutFlags="PositionProportional" Clicked="imgVisiblePassword_Clicked"/>
+                </AbsoluteLayout>
+            </VerticalStackLayout>
+            <StackLayout>
+                <Button Text="ENTRAR" FontSize="Body" FontAttributes="Bold" Command="{Binding LoginCommand}" HorizontalOptions="FillAndExpand" 
+                        BackgroundColor="{DynamicResource MeanButtonBackgroundColor}" TextColor="{DynamicResource MeanButtonTextColor}" Margin="0,20,0,0" />
+                <Label Text="Esqueci minha senha" FontAttributes="Bold" TextColor="{DynamicResource LabelTextColor}" HorizontalTextAlignment="Center" TextDecorations="Underline" FontSize="Body" Margin="0,15,0,0">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ForgotPasswordCommand}"/>
+                    </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>
+        </StackLayout>
+        <ContentView IsVisible="{Binding IsBusy}" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" BackgroundColor="{DynamicResource BackgroundColor}" Padding="10,0">
+            <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" Color="DodgerBlue" HeightRequest="75" WidthRequest="75" HorizontalOptions="Center" VerticalOptions="Center"/>
+        </ContentView>
+    </Grid>
+</views:ContentPageBase>

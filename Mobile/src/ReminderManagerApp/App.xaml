@@ -1,0 +1,51 @@
+﻿<?xml version = "1.0" encoding = "UTF-8" ?>
+<Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ReminderManagerApp"
+             x:Class="ReminderManagerApp.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <!-- Tema Claro -->
+            <ResourceDictionary x:Key="LightTheme">
+                <Color x:Key="BackgroundColor">White</Color>
+                <Color x:Key="LogoTitleTextColor">Black</Color>
+                <Color x:Key="MeanButtonBackgroundColor">DodgerBlue</Color>
+                <Color x:Key="MeanButtonTextColor">White</Color>
+                <Color x:Key="LabelTextColor">Black</Color>
+                <Color x:Key="SecondaryButtonBackgroundColor">White</Color>
+                <Color x:Key="SecondaryButtonTextColor">Black</Color>
+                <Color x:Key="BarNavigationColor">DodgerBlue</Color>
+                <Color x:Key="SelectItemColor">GhostWhite</Color>
+                <Color x:Key="PlaceholderTextColor">Gray</Color>
+                <Color x:Key="ShadowColor">GhostWhite</Color>
+                <Color x:Key="MediumTextColor">#3c3c3c</Color>
+                <Color x:Key="SmallTextColor">#515151</Color>
+                <Color x:Key="MicroTextColor">#8c8c8c</Color>
+
+            </ResourceDictionary>
+
+            <!-- Tema Escuro -->
+            <ResourceDictionary x:Key="DarkTheme">
+                <Color x:Key="BackgroundColor">Black</Color>
+                <Color x:Key="LogoTitleTextColor">White</Color>
+                <Color x:Key="MeanButtonBackgroundColor">White</Color>
+                <Color x:Key="MeanButtonTextColor">Black</Color>
+                <Color x:Key="LabelTextColor">White</Color>
+                <Color x:Key="SecondaryButtonBackgroundColor">Black</Color>
+                <Color x:Key="SecondaryButtonTextColor">White</Color>
+                <Color x:Key="BarNavigationColor">DodgerBlue</Color>
+                <Color x:Key="SelectItemColor">Black</Color>
+                <Color x:Key="PlaceHolderTextColor">White</Color>
+                <Color x:Key="ShadowColor">#2e2e2e</Color>
+                <Color x:Key="MediumTextColor">White</Color>
+                <Color x:Key="SmallTextColor">ghostWhite</Color>
+                <Color x:Key="MicroTextColor">ghostWhite</Color>
+
+            </ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
+                <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

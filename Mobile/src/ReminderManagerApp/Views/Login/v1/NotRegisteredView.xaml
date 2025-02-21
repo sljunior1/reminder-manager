@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<views:ContentPageBase xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:ReminderManagerApp.Views"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:behavior="clr-namespace:ReminderManagerApp.Behaviors"
+             x:Class="ReminderManagerApp.Views.Login.v1.NotRegisteredView"
+             Title="Realize seu cadastro">
+    <views:ContentPageBase.Behaviors>
+        <toolkit:StatusBarBehavior StatusBarColor="DodgerBlue"/>
+    </views:ContentPageBase.Behaviors>
+    <Grid Padding="30">
+        <StackLayout>
+            <VerticalStackLayout Margin="0,20,0,0">
+                <Label Text="NOME COMPLETO" FontSize="Micro" FontAttributes="Bold" TextColor="{DynamicResource LabelTextColor}"/>
+                <Entry Placeholder="Digite seu nome completo" Text="{Binding NameText}" HorizontalOptions="FillAndExpand" MaxLength="100"/>
+            </VerticalStackLayout>
+            <VerticalStackLayout Margin="0,20,0,0">
+                <Label Text="CPF" FontSize="Micro" FontAttributes="Bold" TextColor="{DynamicResource LabelTextColor}"/>
+                <Entry Placeholder="Digite seu CPF" Text="{Binding CPFText}" HorizontalOptions="FillAndExpand" MaxLength="14">
+                    <Entry.Behaviors>
+                        <behavior:CpfBehavior/>
+                    </Entry.Behaviors>
+                </Entry>
+            </VerticalStackLayout>
+            <VerticalStackLayout Margin="0,20,0,0">
+                <Label Text="E-MAIL" FontSize="Micro" FontAttributes="Bold" TextColor="{DynamicResource LabelTextColor}"/>
+                <Entry Placeholder="Digite seu e-mail" Text="{Binding EmailText}" HorizontalOptions="FillAndExpand" MaxLength="100"/>
+            </VerticalStackLayout>
+            <VerticalStackLayout Margin="0,20,0,0">
+                <Label Text="CELULAR" FontSize="Micro" FontAttributes="Bold" TextColor="{DynamicResource LabelTextColor}"/>
+                <Entry Placeholder="Digite seu celular" Text="{Binding PhoneText}" HorizontalOptions="FillAndExpand" MaxLength="15">
+                    <Entry.Behaviors>
+                        <behavior:PhoneNumberBehavior/>
+                    </Entry.Behaviors>
+                </Entry>
+            </VerticalStackLayout>
+            <VerticalStackLayout Margin="0,20,0,0">
+                <Label Text="SENHA" FontSize="Micro" FontAttributes="Bold" TextColor="{DynamicResource LabelTextColor}"/>
+                <AbsoluteLayout HorizontalOptions="FillAndExpand">
+                    <Entry x:Name="entryPassword" Placeholder="Digite sua senha" IsPassword="True" Text="{Binding PasswordText}" MaxLength="10" 
+                           AbsoluteLayout.LayoutBounds="1,0.5,1,AutoSize" AbsoluteLayout.LayoutFlags="WidthProportional" />
+                    <ImageButton x:Name="imgVisiblePassword" BackgroundColor="Transparent" Source="{AppThemeBinding Light=icon_eye_close_light.svg, Dark=icon_eye_close_dark.svg}" HeightRequest="20" WidthRequest="20" 
+                                 AbsoluteLayout.LayoutBounds="1,0,AutoSize,AutoSize" AbsoluteLayout.LayoutFlags="PositionProportional" Clicked="imgVisiblePassword_Clicked"/>
+                </AbsoluteLayout>
+            </VerticalStackLayout>
+            <VerticalStackLayout Margin="0,20,0,0">
+                <Label Text="CONFIRMAR SENHA" FontSize="Micro" FontAttributes="Bold" TextColor="{DynamicResource LabelTextColor}"/>
+                <AbsoluteLayout HorizontalOptions="FillAndExpand">
+                    <Entry x:Name="entryConfirmPassword" Placeholder="Digite sua senha" IsPassword="True" Text="{Binding PasswordConfirmText}" MaxLength="10" 
+                           AbsoluteLayout.LayoutBounds="1,0.5,1,AutoSize" AbsoluteLayout.LayoutFlags="WidthProportional" />
+                    <ImageButton x:Name="imgVisibleConfirmPassword" BackgroundColor="Transparent" Source="{AppThemeBinding Light=icon_eye_close_light.svg, Dark=icon_eye_close_dark.svg}" HeightRequest="20" WidthRequest="20" 
+                 AbsoluteLayout.LayoutBounds="1,0,AutoSize,AutoSize" AbsoluteLayout.LayoutFlags="PositionProportional" Clicked="imgVisibleConfirmPassword_Clicked"/>
+                </AbsoluteLayout>
+            </VerticalStackLayout>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Margin="0,30,0,0">
+                <Button Text="Limpar" FontSize="Body" FontAttributes="Bold" Command="{Binding CleanCommand}" 
+                        BackgroundColor="{DynamicResource SecondaryButtonBackgroundColor}" TextColor="{DynamicResource SecondaryButtonTextColor}" 
+                    BorderColor="#ececec" BorderWidth="1" HorizontalOptions="Start" />
+                <Button Text="Registrar" FontSize="Body" FontAttributes="Bold" Command="{Binding RegisterUserCommand}" HorizontalOptions="End" 
+                        BackgroundColor="{DynamicResource MeanButtonBackgroundColor}" TextColor="{DynamicResource MeanButtonTextColor}" Margin="20,0,0,0" />
+            </StackLayout>
+        </StackLayout>
+        <ContentView IsVisible="{Binding IsBusy}" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" BackgroundColor="{DynamicResource BackgroundColor}" Padding="10,0">
+            <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" Color="DodgerBlue" HeightRequest="75" WidthRequest="75" HorizontalOptions="Center" VerticalOptions="Center"/>
+        </ContentView>
+    </Grid>
+</views:ContentPageBase>

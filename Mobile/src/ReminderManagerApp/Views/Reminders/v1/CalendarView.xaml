@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<views:ContentPageBase xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:ReminderManagerApp.Views"
+             xmlns:calendar="clr-namespace:Plugin.Maui.Calendar.Controls;assembly=Plugin.Maui.Calendar"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="ReminderManagerApp.Views.Reminders.v1.CalendarView"
+             Title="" BackgroundColor="{DynamicResource BackgroundColor}">
+    <views:ContentPageBase.Behaviors>
+        <toolkit:StatusBarBehavior StatusBarColor="{DynamicResource BackgroundColor}"/>
+    </views:ContentPageBase.Behaviors>
+    <Grid Padding="30">
+        <StackLayout>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+                <Label Text="CALENDÁRIO" HorizontalOptions="CenterAndExpand" FontSize="Default" FontFamily="AppLogoFont" VerticalOptions="CenterAndExpand" TextColor="{DynamicResource LabelTextColor}"/>
+            </StackLayout>
+            <StackLayout HorizontalOptions="FillAndExpand" Margin="0,20,0,0">
+                <calendar:Calendar x:Name="calendar" EventsScrollViewVisible="True" DaysTitleColor="{DynamicResource LabelTextColor}" DaysTitleWeekendColor="{DynamicResource LabelTextColor}" Culture="{Binding Culture}"
+                   DeselectedDayTextColor="{DynamicResource LabelTextColor}" EventIndicatorColor="Yellow" EventIndicatorSelectedColor="Yellow" MonthLabelColor="{DynamicResource LabelTextColor}" 
+                   OtherMonthDayColor="{DynamicResource LabelTextColor}" SelectedDayBackgroundColor="DodgerBlue" YearLabelColor="{DynamicResource LabelTextColor}">
+                    <calendar:Calendar.EventTemplate>
+                        <DataTemplate>
+                            <VerticalStackLayout>
+                                <Label Text="{Binding Name}" FontAttributes="Bold" Margin="0,5,0,0" TextColor="{DynamicResource LabelTextColor}"/>
+                                <Label Text="{Binding Description}" TextColor="{DynamicResource LabelTextColor}"/>
+                            </VerticalStackLayout>
+                        </DataTemplate>
+                    </calendar:Calendar.EventTemplate>
+                </calendar:Calendar>
+            </StackLayout>
+        </StackLayout>
+    </Grid>
+</views:ContentPageBase>

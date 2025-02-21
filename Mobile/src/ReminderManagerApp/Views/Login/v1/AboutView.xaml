@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<views:ContentPageBase xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:ReminderManagerApp.Views"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="ReminderManagerApp.Views.Login.v1.AboutView"
+             Title="Sobre">
+    <views:ContentPageBase.Behaviors>
+        <toolkit:StatusBarBehavior StatusBarColor="DodgerBlue"/>
+    </views:ContentPageBase.Behaviors>
+    <Grid Padding="30">
+        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Margin="0,0,0,100">
+                <Image Source="{AppThemeBinding Light=icon_bell_light.svg, Dark=icon_bell_dark.svg}" WidthRequest="25" HeightRequest="25" />
+                <Label Text="Reminder Manager" FontSize="Large" FontAttributes="Bold" FontFamily="AppLogoFont" TextColor="{DynamicResource LogoTitleTextColor}" Margin="10,0,0,0"/>
+            </StackLayout>
+            <Label HorizontalTextAlignment="Start" Text="{Binding Version}" FontSize="Medium" TextColor="{DynamicResource LabelTextColor}"/>
+            <Label HorizontalTextAlignment="Start" Text="{Binding VersionPlatformAndroid}" FontSize="Medium" TextColor="{DynamicResource LabelTextColor}"/>
+            <Label HorizontalOptions="CenterAndExpand" VerticalOptions="Center" Text="{Binding Description}" TextColor="{DynamicResource LabelTextColor}" FontSize="Small" HorizontalTextAlignment="Center" Margin="0,50,0,0"/>
+        </StackLayout>
+    </Grid>
+</views:ContentPageBase>
