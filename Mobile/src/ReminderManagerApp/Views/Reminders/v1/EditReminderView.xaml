@@ -46,10 +46,8 @@
             </Frame>
             <Label Text="{Binding NameFile}" />
             <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Margin="0,30,0,0">
-                <Button Text="Limpar" FontSize="Body" FontAttributes="Bold" Command="{Binding CleanCommand}" BackgroundColor="{DynamicResource SecondaryButtonBackgroundColor}" TextColor="{DynamicResource SecondaryButtonTextColor}" 
-                BorderColor="#ececec" BorderWidth="1" HorizontalOptions="Start" />
-                <Button Text="Atualizar" FontSize="Body" FontAttributes="Bold" Command="{Binding EditCommand}" HorizontalOptions="Center" BackgroundColor="{DynamicResource MeanButtonBackgroundColor}" TextColor="{DynamicResource MeanButtonTextColor}" Margin="20,0,0,0" />
-                <Button Text="Excluir" FontSize="Body" FontAttributes="Bold" Command="{Binding DeleteCommand}" HorizontalOptions="End" BackgroundColor="Red" TextColor="White" Margin="20,0,0,0" />
+                <Button Text="Atualizar" FontSize="Body" FontAttributes="Bold" Command="{Binding EditCommand}" BackgroundColor="{DynamicResource MeanButtonBackgroundColor}" TextColor="{DynamicResource MeanButtonTextColor}" Margin="20,0,0,0" />
+                <Button Text="Excluir" FontSize="Body" FontAttributes="Bold" Command="{Binding DeleteCommand}" BackgroundColor="Red" TextColor="White" Margin="20,0,0,0" />
             </StackLayout>
         </StackLayout>
         <ContentView IsVisible="{Binding IsBusy}" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" BackgroundColor="{DynamicResource BackgroundColor}" Padding="10,0" Opacity="0.8">

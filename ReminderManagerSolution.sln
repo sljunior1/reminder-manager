@@ -7,7 +7,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1- App", "1- App", "{290753
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2- Api", "2- Api", "{C019F2CA-5A52-41A6-A621-EBAA846B297A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReminderManagerApp", "Mobile\src\ReminderManagerApp\ReminderManagerApp.csproj", "{D0B5B451-FC6D-436C-9125-802467BF6EA8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReminderManagerApp", "Mobile\src\ReminderManagerApp\ReminderManagerApp.csproj", "{D0B5B451-FC6D-436C-9125-802467BF6EA8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReminderManagerApi", "WebApi\src\ReminderManagerApi\ReminderManagerApi.csproj", "{9D5C687F-F158-4884-A057-B54B344C84DF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,12 +23,17 @@ Global
 		{D0B5B451-FC6D-436C-9125-802467BF6EA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D0B5B451-FC6D-436C-9125-802467BF6EA8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D0B5B451-FC6D-436C-9125-802467BF6EA8}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{9D5C687F-F158-4884-A057-B54B344C84DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D5C687F-F158-4884-A057-B54B344C84DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D5C687F-F158-4884-A057-B54B344C84DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D5C687F-F158-4884-A057-B54B344C84DF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{D0B5B451-FC6D-436C-9125-802467BF6EA8} = {290753BE-2498-429D-AFC2-C7E5607EE796}
+		{9D5C687F-F158-4884-A057-B54B344C84DF} = {C019F2CA-5A52-41A6-A621-EBAA846B297A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7EFADCD5-67DB-416B-9FAD-3035735E35E2}

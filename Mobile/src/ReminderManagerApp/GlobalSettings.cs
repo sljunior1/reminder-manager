@@ -3,7 +3,7 @@
     public class GlobalSettings
     {
         private const string IP = "192.168.0.10";
-        private const string Porta = "7025";
+        private const string Porta = "7130";
         public const string DefaultEndpoint = $"https://{IP}:{Porta}/api/";
         public string ExecuteAddUserEndpoint { get; set; }
         public string GetAllReminderByUserEndpoint { get; set; }

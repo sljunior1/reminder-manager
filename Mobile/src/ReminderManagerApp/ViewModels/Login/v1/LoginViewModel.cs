@@ -92,7 +92,7 @@ namespace ReminderManagerApp.ViewModels.Login.v1
                         }
                         else
                         {
-                            App.Current?.MainPage?.DisplayAlert(SystemMessage.REMINDER_MANAGER, SystemMessage.EXECUTE_LOGIN_INVALID, "ok");
+                            App.Current?.MainPage?.DisplayAlert(SystemMessage.REMINDER_MANAGER, response.ErrorMessage, "ok");
                         }
                     }
                 }
