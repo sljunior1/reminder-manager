@@ -1,0 +1,6 @@
+@ReminderManagerApi_HostAddress = http://localhost:5062
+
+GET {{ReminderManagerApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
